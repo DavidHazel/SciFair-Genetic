@@ -1,6 +1,6 @@
-
-
-
+/**
+ JS file to calculate the experiments results.
+*/
 
 var count_x_blue_x_green = 0;
 var count_x_green_x_green = 0;
@@ -75,7 +75,6 @@ function runExperiments(){
 
 	updateResultsValue("Results", printResults);
 
-
 }
 
 function updateResults(results){
@@ -95,7 +94,6 @@ function updateResults(results){
 			count_x_green_y_naked++;
 			break;
 	}
-
 	//update the results window pane
 
 }
@@ -103,53 +101,15 @@ function updateResults(results){
 function onLoad(){
 	var resultsButton = document.getElementById('runExperiments');
 	resultsButton.onclick = runExperiments;
-	
-
-	
-	
 }
-
 
 /*
  ResultDivID = the ID of the div you want to place your results value inside of
  val = the value you want to display
 */
 function updateResultsValue(ResultDivID, val) {
-
 	var results = document.getElementById(ResultDivID);
 	results.innerHTML = val;
-	//console.log(results);
-}
-
-/*
- ResultDivID = the ID of the div you want to place your results value inside of
- val = the value you want to display
-*/
-function setResultsValue(ResultDivID, val) {
-
-	var results = document.getElementById(ResultDivID);
-	results.innerHTML = val;
-	//console.log(results);
-}
-/*
-	 ResultDivID = the ID of the div you want to get your results value from
-	 @return returns the value stored in ResultDivID
-*/
-function getResultsValue(ResultDivID) {
-	var val = document.getElementById(ResultDivID);
-	return val.innerHTML;
-}
-
-
-
-/*
- Take value of TeamtotalPlayers input, multiply by 2 and push the result to TermTotalPossible (deonominator)
-*/
-function calcTermTotalPossible(){
-	var a = document.getElementById('TeamTotalPlayers').value;
-	var result = a * 2;
-	setResultsValue('TermTotalPossible', result);
-	//console.log("calcTermTotalPossible:" + result);
 }
 
 
