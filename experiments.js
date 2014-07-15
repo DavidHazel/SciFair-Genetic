@@ -37,7 +37,7 @@ function getRandom(a){
 }
 
 /*
-Rerun all calcualtions, we do this becasue we have limited inputs and its easier just to recalc the page
+Rerun all calculations, we do this becasue we have limited inputs and its easier just to recalc the page
 */
 function runExperiments(){
 
@@ -74,9 +74,28 @@ function runExperiments(){
 	printResults += "<div>X Green | Y Naked = " + count_x_green_y_naked + "</div>";
 
 	updateResultsValue("Results", printResults);
+	
+	var results = [];
+	results['samplesize'] = samplesize;
+	results['count_x_blue_x_green'] = count_x_blue_x_green;
+	results['count_x_green_x_green'] = count_x_green_x_green;
+	results['count_x_blue_y_naked'] = count_x_blue_y_naked;
+	results['count_x_green_y_naked'] = count_x_green_y_naked;
+
+	logResults(results);
+
 
 }
 
+function logResults(data){
+	$.post( "log.php", {
+		samplesize: data.samplesize,
+		count_x_blue_x_green: data.count_x_blue_x_green,
+		count_x_green_x_green: data.count_x_green_x_green,
+		count_x_blue_y_naked: data.count_x_blue_y_naked,
+		count_x_green_y_naked: data.count_x_green_y_naked
+	 } );
+}
 function updateResults(results){
 	//update the count variables
 
